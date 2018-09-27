@@ -24,8 +24,8 @@ describe Bookmark do
 
   describe 'invalid url message' do
     it 'displays an error message when invalid url is submitted' do
-      Book.create('ww.blah.ji')
-
+      Bookmark.create('ww.blah.ji')
+      expect(flash[:alert]).to match('Error: Invalid URL')
     end
   end
 
