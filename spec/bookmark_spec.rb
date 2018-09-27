@@ -22,11 +22,11 @@ describe Bookmark do
     end
   end
 
-  # describe '.create' do
-  #   it 'does not create a new bookmark if the URL is not valid' do
-  #     Bookmark.create('not a real bookmark')
-  #     expect(Bookmark.all).not_to include 'not a real bookmark'
-  #   end
-  # end
+  describe 'invalid url message' do
+    it 'displays an error message when invalid url is submitted' do
+      Book.create('ww.blah.ji')
+
+    end
+  end
 
 end
