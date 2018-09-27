@@ -2,13 +2,10 @@ require 'sinatra/base'
 require './lib/bookmark'
 require 'pry'
 require 'sinatra/flash'
-# require 'uri'
+require 'shotgun'
 
 
 class BookmarkManager < Sinatra::Base
-
-  # enable :sessions
-  # register Sinatra::Flash
 
   get '/' do
     "Bookmark Manager"
