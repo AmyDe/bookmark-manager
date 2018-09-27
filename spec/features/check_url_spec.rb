@@ -4,6 +4,6 @@ feature 'check if valid url' do
     visit('/bookmarks')
     fill_in('url', with: 'not a real bookmark')
     click_button('Add Bookmark')
-    expect(page).to have_content('Error: Invalid URL')
+    expect(page).to have_content('You must submit a valid URL.')
   end
 end

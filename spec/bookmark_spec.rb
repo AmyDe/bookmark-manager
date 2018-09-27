@@ -16,10 +16,10 @@ describe Bookmark do
   end
 
   describe '.create' do
-    
+
     it 'adds a new bookmark to the table of bookmarks' do
-      Bookmark.create('www.facebook.com')
-      expect(Bookmark.all).to include('www.facebook.com')
+      Bookmark.create('http://www.facebook.com')
+      expect(Bookmark.all).to include('http://www.facebook.com')
     end
 
     it 'does not create a new bookmark if the URL is not valid' do
