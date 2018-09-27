@@ -16,17 +16,17 @@ describe Bookmark do
   end
 
   describe '.create' do
+    
     it 'adds a new bookmark to the table of bookmarks' do
       Bookmark.create('www.facebook.com')
       expect(Bookmark.all).to include('www.facebook.com')
     end
-  end
 
-  describe 'invalid url message' do
-    it 'displays an error message when invalid url is submitted' do
-      Bookmark.create('ww.blah.ji')
-      expect(flash[:alert]).to match('Error: Invalid URL')
+    it 'does not create a new bookmark if the URL is not valid' do
+      Bookmark.create('not a real bookmark')
+      expect(Bookmark.all).not_to include 'not a real bookmark'
     end
+
   end
 
 end

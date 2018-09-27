@@ -14,13 +14,19 @@ class Bookmark
   end
 
   def self.create(address)
-
+    return false unless is_url?(address)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
       connection = PG.connect(dbname: 'bookmark_manager')
     end
-    connection.exec ("INSERT INTO bookmarks (url) VALUES ('#{address}');")
+      connection.exec ("INSERT INTO bookmarks (url) VALUES ('#{address}');")
+  end
+
+  private
+
+  def self.is_url?(url)
+    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
   end
 
 end
